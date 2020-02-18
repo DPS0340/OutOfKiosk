@@ -33,6 +33,8 @@
 		FA0C2FC523C3192900598506 /* DetailMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0C2FC423C3192900598506 /* DetailMenuController.swift */; };
 		FA0E254423E12FC500ACB1A0 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E254323E12FC500ACB1A0 /* FavoriteList.swift */; };
 		FA1E58AF23C41A79002215BB /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E58AE23C41A79002215BB /* ProductList.swift */; };
+		FA7765A523FBA9BD00C27FD9 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7765A423FBA9BD00C27FD9 /* UserNotifications.framework */; };
+		FA7765A723FBA9C900C27FD9 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7765A623FBA9C900C27FD9 /* PushKit.framework */; };
 		FAC52D7523CD887200ADDD34 /* ShoppingBasketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC52D7423CD887200ADDD34 /* ShoppingBasketController.swift */; };
 		FAC52D7723CD88C200ADDD34 /* ShoppingBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC52D7623CD88C200ADDD34 /* ShoppingBasket.swift */; };
 /* End PBXBuildFile section */
@@ -68,8 +70,11 @@
 		FA0C2FC423C3192900598506 /* DetailMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMenuController.swift; sourceTree = "<group>"; };
 		FA0E254323E12FC500ACB1A0 /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		FA1E58AE23C41A79002215BB /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		FA7765A423FBA9BD00C27FD9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		FA7765A623FBA9C900C27FD9 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		FAC52D7423CD887200ADDD34 /* ShoppingBasketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBasketController.swift; sourceTree = "<group>"; };
 		FAC52D7623CD88C200ADDD34 /* ShoppingBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBasket.swift; sourceTree = "<group>"; };
+		FAE5B0DA23FA702F000E4BB2 /* OutOfKiosk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OutOfKiosk.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7765A523FBA9BD00C27FD9 /* UserNotifications.framework in Frameworks */,
 				561A199013A68AC2CAB7E557 /* Pods_OutOfKiosk.framework in Frameworks */,
+				FA7765A723FBA9C900C27FD9 /* PushKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +147,7 @@
 		33259F5123BB017400D44CB0 /* OutOfKiosk */ = {
 			isa = PBXGroup;
 			children = (
+				FAE5B0DA23FA702F000E4BB2 /* OutOfKiosk.entitlements */,
 				33259F5223BB017400D44CB0 /* AppDelegate.swift */,
 				33259F5423BB017400D44CB0 /* SceneDelegate.swift */,
 				33259F5823BB017400D44CB0 /* Main.storyboard */,
@@ -180,6 +188,8 @@
 		7D0FB79258CACD51825396F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA7765A623FBA9C900C27FD9 /* PushKit.framework */,
+				FA7765A423FBA9BD00C27FD9 /* UserNotifications.framework */,
 				2E77C96B32E43C00A091B8A7 /* Pods_OutOfKiosk.framework */,
 			);
 			name = Frameworks;
@@ -477,6 +487,7 @@
 			baseConfigurationReference = 109C79DE6BF10C453A241743 /* Pods-OutOfKiosk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OutOfKiosk/OutOfKiosk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S52PAXB444;
 				INFOPLIST_FILE = OutOfKiosk/Info.plist;
@@ -496,6 +507,7 @@
 			baseConfigurationReference = F5097F4775439F8A0528E7C8 /* Pods-OutOfKiosk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OutOfKiosk/OutOfKiosk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S52PAXB444;
 				INFOPLIST_FILE = OutOfKiosk/Info.plist;
