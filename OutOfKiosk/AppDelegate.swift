@@ -9,6 +9,8 @@
 import UIKit
 /* Push Notification 을 받기 위한 모듈*/
 import UserNotifications
+/*Push Notification 권환 받을 때 달라지는 토큰값을 pushNotificatio.php에 저장해야 한다.*/
+import Alamofire
 
 /*
  모든 View 컨트롤러에서 접근이 가능하며 앱이 종료되지 않는 이상 데이터가 유지가 될 수 있다.
@@ -44,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+//        print("성공")
+        
         /* 최초에 사용자로부터 pushNotification의 권환을 받기 위한 코드*/
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) {
@@ -53,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("사용자가 푸시를 허용했습니다")
                 DispatchQueue.main.async {
                     application.registerForRemoteNotifications()
+                    
                 }
             } else {
                 print("사용자가 푸시를 거절했습니다")
@@ -70,7 +75,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("등록된 토큰은 \(deviceTokenString) 입니다.")
-        //token = 16CD53C0702E06DE4CF1C8E1D7B8479576B4F55F3C4B46DD48BC56828184DDB6
+        
+        let parameters: Parameters=[
+            "token" : deviceTokenString
+        ]
+        /* php 서버 위치 */
+        let URL_ORDER = "http://ec2-13-124-57-226.ap-northeast-2.compute.amazonaws.com/pushNotification/setTokenValue.php"
+        
+        Alamofire.request(URL_ORDER, method: .post, parameters: parameters).responseString
+            {
+                response in
+                print("응답",response)
+                
+        }
     }
     
     // 토큰 등록 실패 (registerForRemoteNotifications()을 호출한 결과가 실패)
@@ -78,12 +95,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("에러 발생 : \(error)")
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
-        print("메시지 수신 : \(data)")
-        UIApplication.shared.applicationIconBadgeNumber += 1
-    }
-    /* ======================================================================================================================== */
+    /* forground에서는 인식되나 background에서 인식이 안됌.*/
     
+    //ForGround 용
+    
+    /*func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        print("메시지 수신 : \(data)")
+        print(type(of: data))
+//        let dict = data.values
+        let aps = data[AnyHashable("aps")] as? NSDictionary
+        let alert = aps!["alert"] as! NSMutableString
+        print("메시지 내용 찾기 : ", alert)
+        UIApplication.shared.applicationIconBadgeNumber += 0
+
+        UserDefaults.standard.set(alert, forKey: "pushMSG")
+    
+    }*/
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        //data in 
+//        print("hello wolrd")
+        // 이 함수를 사용하려면 Capailities의 Background Mode ON하고 Remote Message체크해야 함
+        print("메시지 수신 : \(data)")
+        print(type(of: data))
+        //        let dict = data.values
+        let aps = data[AnyHashable("aps")] as? NSDictionary
+        let alert = aps!["alert"] as! NSMutableString
+        print("메시지 내용 찾기 : ", alert)
+        UIApplication.shared.applicationIconBadgeNumber += 0
+        
+        UserDefaults.standard.set(alert, forKey: "pushMSG")
+    }
+ 
     
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -126,7 +171,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func applicationDidBecomeActive(_ application: UIApplication) {
         KOSession.handleDidBecomeActive()
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
+    
     
 
 }
+
+/*
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // 앱이 구동되어 있으면 호출됨
+//        processPayload(notification.request.content.userInfo, background: false)
+        
+        completionHandler(.alert) // 푸시가 오면 어떻게 표현이 되는지에 대해서 정의
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // 앱이 백그라운드 상태면 호출됨
+//        processPayload(response.notification.request.content.userInfo, background: true)
+        completionHandler()
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        let state = application.applicationState
+        switch state {
+        case .background, .inactive:
+            print("백그라운드 모드")
+            break
+        //            processPayload(userInfo, background: true)
+        case .active:
+            print("포그라운드 모드")
+            print("메시지 수신 : \(data)")
+            print(type(of: data))
+            //        let dict = data.values
+            let aps = data[AnyHashable("aps")] as? NSDictionary
+            let alert = aps!["alert"] as! NSMutableString
+            print("메시지 내용 찾기 : ", alert)
+            UIApplication.shared.applicationIconBadgeNumber += 0
+            
+            UserDefaults.standard.set(alert, forKey: "pushMSG")
+            break
+//            processPayload(userInfo, background: false)
+        @unknown default:
+            break
+            // 상태가 존재하지는 않음
+//            processPayload(userInfo, background: true)
+        }
+    }
+}
+*/

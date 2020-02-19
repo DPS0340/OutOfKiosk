@@ -182,9 +182,22 @@ class MainController : UIViewController{
         }
     }
     
+    @objc func willEnterForeground() {
+        print("will enter foreground")
+        
+        print(UserDefaults.standard.string(forKey: "pushMSG"))
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*옵져버*/
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        
+        
         
         /* 그림자 넣기, 둥글게 만들기 */
         self.navigationController!.navigationBar.setBackgroundImage(nil, for: .default)
@@ -233,6 +246,9 @@ class MainController : UIViewController{
         
         self.navigationController!.isNavigationBarHidden = true
         
+        let pushMSG = UserDefaults.standard.string(forKey: "pushMSG")
+        print("스마트폰에 저장된 주문 메시지 : ", pushMSG )
+        
         CustomHttpRequest().phpCommunication(url: "getUserInfo.php", postString: "id=\(self.userId!)"){
             responseString in
             
@@ -253,6 +269,8 @@ class MainController : UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController!.isNavigationBarHidden = false
+        
+
     }
     
     

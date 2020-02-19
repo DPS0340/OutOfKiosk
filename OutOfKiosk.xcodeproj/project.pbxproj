@@ -51,7 +51,7 @@
 		3308428F23BDA18400FCF4C0 /* StoreList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreList.swift; sourceTree = "<group>"; };
 		3308429123BDE67700FCF4C0 /* StoreDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailController.swift; sourceTree = "<group>"; };
 		330E8F1923CE99AF00D21053 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
-		33259F4F23BB017400D44CB0 /* OutOfKiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutOfKiosk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33259F4F23BB017400D44CB0 /* 여기다.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "여기다.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33259F5223BB017400D44CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33259F5423BB017400D44CB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		33259F5923BB017400D44CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		33259F5023BB017400D44CB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				33259F4F23BB017400D44CB0 /* OutOfKiosk.app */,
+				33259F4F23BB017400D44CB0 /* 여기다.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 			);
 			name = OutOfKiosk;
 			productName = OutOfKiosk;
-			productReference = 33259F4F23BB017400D44CB0 /* OutOfKiosk.app */;
+			productReference = 33259F4F23BB017400D44CB0 /* 여기다.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -526,7 +526,7 @@
 					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = OOK.OutOfKiosk;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "여기다";
 				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -571,7 +571,7 @@
 					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = OOK.OutOfKiosk;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "여기다";
 				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
