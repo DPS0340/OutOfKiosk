@@ -242,6 +242,7 @@ class ShoppingBasketController : UIViewController, UITableViewDelegate, UITableV
              }*/
             
             let userId = UserDefaults.standard.string(forKey: "id")!
+            let token = UserDefaults.standard.string(forKey: "token")
             
             print("userID type is : ", type(of: userId))
             let parameters: Parameters=[
@@ -250,7 +251,9 @@ class ShoppingBasketController : UIViewController, UITableViewDelegate, UITableV
                 "sugar": shoppingBasket_productSugarContent[i],
                 "whippedcream": shoppingBasket_productIsWhippedCream[i],
                 "currentDate" : currentDate,
-                "userID" : userId//UserDefaults.standard.string(forKey: "id")
+                "userID" : userId,
+                "token" : token!
+                //UserDefaults.standard.string(forKey: "id")
                 //user Id또한 넣어주어야한다.
                 //order ID는 DB에서 auto_increament 한다.
             ]

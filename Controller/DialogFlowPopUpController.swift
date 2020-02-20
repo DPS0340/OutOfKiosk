@@ -469,11 +469,14 @@ class DialogFlowPopUpController: UIViewController{
                                         }
                                         
                                     }else{ // 유사도 추천이 없는 질문의 경우
-                                        self.select_Btn.isHidden = true
-                                        self.speechAndText(textResponse)
-                                        print("일반")
-                                        // 질문이 반복되는지 감지하기 위해
-                                        self.befResponse = textResponse
+                                        DispatchQueue.main.async {
+                                            self.select_Btn.isHidden = true
+                                            self.speechAndText(textResponse)
+                                            print("일반")
+                                            // 질문이 반복되는지 감지하기 위해
+                                            self.befResponse = textResponse
+                                        }
+                                        
                                     }
                                     
                                     // 2-2-2 장바구니에 담은 경우

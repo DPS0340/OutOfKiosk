@@ -212,19 +212,19 @@ class MainController : UIViewController{
         view.contentMode = .scaleAspectFill
     }
     
-    /*@objc func didEnterBackground() {
-        print("didEnterBackground!!!!")        
-        print(UserDefaults.standard.string(forKey: "pushMSG"))
+    @objc func willEnterForeground() {
+        print("willEnterForeground!!!!")
+//        print(UserDefaults.standard.string(forKey: "pushMSG"))
         
-    }*/
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        /*옵져버*/
+        
+        /*ForeGround 옵져버*/
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-        */
+        
         
         /*백그라운드 옵져버?*/
         /*NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -321,13 +321,13 @@ class MainController : UIViewController{
             self.progressImage_ImageView.alpha = 1.0
         }
         
+        print("MainControllerViewWillAppear??")
         
     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController!.isNavigationBarHidden = false
-        
 
     }
     

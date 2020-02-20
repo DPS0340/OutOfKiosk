@@ -79,21 +79,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 토큰 정상 등록(registerForRemoteNotifications()을 호출한 결과가 성공일 때)
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
         print("등록된 토큰은 \(deviceTokenString) 입니다.")
         
-        /* 새로 받은 토큰을 setTokenValue.php 파일에 저장하는 과정.*/
-        let parameters: Parameters=[
-            "token" : deviceTokenString
-        ]
-        /* php 서버 위치 */
-        let URL_ORDER = "http://ec2-13-124-57-226.ap-northeast-2.compute.amazonaws.com/pushNotification/setTokenValue.php"
         
-        Alamofire.request(URL_ORDER, method: .post, parameters: parameters).responseString
-            {
-                response in
-                print("응답",response)
-                
-        }
+        UserDefaults.standard.set(deviceTokenString , forKey: "token")
     }
     
     // 토큰 등록 실패 (registerForRemoteNotifications()을 호출한 결과가 실패)
