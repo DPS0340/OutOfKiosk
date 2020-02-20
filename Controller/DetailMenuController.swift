@@ -29,6 +29,9 @@ class DetailMenuController : UIViewController, UITableViewDelegate, UITableViewD
     var willgetCategroyPrice : Array<Int>!
     var favoriteTag : Array<String> = []
     
+//    var storeName : String?
+    var willgetStoreNameArray : Array<String> = []
+    
     
     @IBOutlet weak var ProductTableView: UITableView!
         
@@ -72,29 +75,51 @@ class DetailMenuController : UIViewController, UITableViewDelegate, UITableViewD
          */
         let defaults = UserDefaults.standard
         var favoriteMenuArray = defaults.stringArray(forKey: "favoriteMenuArray") ?? [String]()
+        var favoriteStoreNameArray = defaults.stringArray(forKey: "favoriteStoreNameArray") ?? [String]()
         
         /* 이미 추가된 메뉴가 있을경우 중복 추가를 방지 하기위해 만들어 놓은 if stmt*/
         if (favoriteMenuArray.contains(self.willgetCategoryName[indexPath.row])){
             print("Already contained")
             
-            favoriteMenuArray.removeAll{ $0 == self.willgetCategoryName[indexPath.row]}
+//            favoriteMenuArray.removeAll{ $0 == self.willgetCategoryName[indexPath.row]}
+            favoriteMenuArray.remove(at: indexPath.row)
             self.favoriteTag[indexPath.row] = " "
             UserDefaults.standard.removeObject(forKey: "favoriteMenuArray")
             UserDefaults.standard.set(favoriteMenuArray, forKey: "favoriteMenuArray")
+            
+            
+        
+//            favoriteStoreNameArray.removeAll{ $0 == self.willgetStoreNameArray[indexPath.row]}
+            favoriteStoreNameArray.remove(at: indexPath.row)
+            
+            UserDefaults.standard.removeObject(forKey: "favoriteStoreNameArray")
+            UserDefaults.standard.set(favoriteStoreNameArray, forKey: "favoriteStoreNameArray")
+            
+            
+            
             self.ProductTableView.reloadRows(at: [indexPath], with: .automatic)
 
+            
             
         }else{
             
             UserDefaults.standard.removeObject(forKey: "favoriteMenuArray")
             favoriteMenuArray.append(self.willgetCategoryName[indexPath.row])
-            print("favorite menu : ", favoriteMenuArray,"\n") //print test
+            
             UserDefaults.standard.set(favoriteMenuArray, forKey: "favoriteMenuArray")
+            
+            UserDefaults.standard.removeObject(forKey: "favoriteStoreNameArray")
+            favoriteStoreNameArray.append(self.willgetStoreNameArray[indexPath.row])
+            
+            UserDefaults.standard.set(favoriteStoreNameArray, forKey: "favoriteStoreNameArray")
+            
             self.favoriteTag[indexPath.row] = "즐겨찾기 됨"
             self.ProductTableView.reloadRows(at: [indexPath], with: .automatic)
              
         }
 
+        print("favorite menu : ", favoriteMenuArray,"\n") //print test
+        print("store name : ", favoriteStoreNameArray,"\n") //print test
         /*
          PHP 추가 연동기능 동기화 제거 -> 어플 자체에 저장하는 방식으로 변경함.
          let userId = UserDefaults.standard.string(forKey: "id")!

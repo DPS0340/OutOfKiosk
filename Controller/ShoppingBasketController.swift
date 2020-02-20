@@ -61,6 +61,8 @@ class ShoppingBasketController : UIViewController, UITableViewDelegate, UITableV
     var shoppingBasket_productSugarContent : Array<String>! = []//[3000,5000,4500]
     var shoppingBasket_productIsWhippedCream : Array<String>! = []//[3000,5000,4500]
     
+    var shoppingBasket_storeName : Array<String>!
+    
     var basketItemInfo : String = String() //이 곳에 제품에 대한 이름, 가격, 수량, 옵션 텍스트를 넣을것이다.
     
     var totalPrice : Int = 0
@@ -268,25 +270,37 @@ class ShoppingBasketController : UIViewController, UITableViewDelegate, UITableV
                     
                     self.alertMessage("주문 성공", "주문한 메뉴가 나올 때까지 기다려 주세요.")
                     
+                    
+                    
+                    let ad = UIApplication.shared.delegate as? AppDelegate
+                    
+                    print("현재 주문성공한 가게 이름은 ", ad?.menuStoreName)
+                    
+                    UserDefaults.standard.set(self.shoppingBasket_productName[0], forKey: "mainProgressMenuName")
+                    UserDefaults.standard.set(ad?.numOfProducts, forKey: "mainProgressMenuCount")
+                    UserDefaults.standard.set(ad?.menuStoreName, forKey: "mainProgressStoreName")
+                    
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    //        let ad = UIApplication.shared.delegate as? AppDelegate
+                    
+                    ad?.numOfProducts = 0
+                    /* 주문이 완료되면 현재 장바구니의 아이템을 삭제해야하므로 appdelegate의 모든 아이템을 초기화한다.*/
+                    //self.willGetShoppingBasket_Btn.setTitle("장바구니 : " + String(ad!.numOfProducts) + " 개", for: .normal)
+                    
+                    ad?.menuNameArray = []
+                    ad?.menuSizeArray = []
+                    ad?.menuCountArray = []
+                    ad?.menuEachPriceArray = []
+                    ad?.menuSugarContent = []
+                    ad?.menuIsWhippedCream = []
+                    
             }
         }
         
         
         
         
-        self.navigationController?.popViewController(animated: true)
-        let ad = UIApplication.shared.delegate as? AppDelegate
-        
-        ad?.numOfProducts = 0
-        /* 주문이 완료되면 현재 장바구니의 아이템을 삭제해야하므로 appdelegate의 모든 아이템을 초기화한다.*/
-        //self.willGetShoppingBasket_Btn.setTitle("장바구니 : " + String(ad!.numOfProducts) + " 개", for: .normal)
-        
-        ad?.menuNameArray = []
-        ad?.menuSizeArray = []
-        ad?.menuCountArray = []
-        ad?.menuEachPriceArray = []
-        ad?.menuSugarContent = []
-        ad?.menuIsWhippedCream = []
         
     }
     @IBAction func orderItems_Btn(_ sender: Any) {

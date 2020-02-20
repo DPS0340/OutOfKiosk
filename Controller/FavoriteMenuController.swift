@@ -17,6 +17,7 @@ class FavoriteMenuController : UIViewController, UITableViewDelegate , UITableVi
     
     //각 유저가 즐겨찾기한 목록의 item을 Array들을 여기에 넣을 것이다.
     var willgetFavoriteMenuName = [""]
+    var willgetFavoriteStoreName = [""]
     
     
     @IBOutlet weak var shoppingBasket_Btn: UIButton!
@@ -55,6 +56,11 @@ class FavoriteMenuController : UIViewController, UITableViewDelegate , UITableVi
         
         /* Cell의 이름을 DialogFlow에 전송한다. */
         rvc.favoriteMenuName = willgetFavoriteMenuName[indexPath.row]
+        
+        print("즐겨찾기에서 가게이름 : ", willgetFavoriteStoreName[indexPath.row])
+        rvc.storeName = willgetFavoriteStoreName[indexPath.row]
+        
+        
         self.navigationController?.pushViewController(rvc, animated: true)
     }
     
@@ -93,11 +99,18 @@ class FavoriteMenuController : UIViewController, UITableViewDelegate , UITableVi
         let defaults = UserDefaults.standard
         var favoriteMenuArray = defaults.stringArray(forKey: "favoriteMenuArray") ?? [String]()
                 
+        var favoriteStoreNameArray = defaults.stringArray(forKey: "favoriteStoreNameArray") ?? [String]()
+                
         
         /* 즐겨찾기 메뉴 배열에서 값에 대한 인덱스 값을 찾아 그 인덱스를 지우는 작업*/
-        favoriteMenuArray.remove(at: favoriteMenuArray.firstIndex(of: willgetFavoriteMenuName[indexPath.row])!)
+        //favoriteMenuArray.remove(at: favoriteMenuArray.firstIndex(of: willgetFavoriteMenuName[indexPath.row])!)
+        
+        favoriteMenuArray.remove(at: indexPath.row)
+        favoriteStoreNameArray.remove(at:indexPath.row)
+        
         
         UserDefaults.standard.set(favoriteMenuArray, forKey: "favoriteMenuArray")
+        UserDefaults.standard.set(favoriteStoreNameArray, forKey: "favoriteStoreNameArray")
         
         /* willgetFavoriteMenuName = 현재 즐겨찾기목록에 있는 메뉴들의 이름 배열.*/
         /* UI적으로 TableViewCell을 삭제하기 위한 작업*/
@@ -121,6 +134,13 @@ class FavoriteMenuController : UIViewController, UITableViewDelegate , UITableVi
             if count != 0 {
                 guard let rvc = self.storyboard?.instantiateViewController(withIdentifier: "ShoppingBasketController") as? ShoppingBasketController else {
                     return}
+                
+//                let defaults = UserDefaults.standard
+//                var favoriteStoreNameArray = defaults.stringArray(forKey: "favoriteStoreNameArray") ?? [String]()
+                
+                //rvc.shoppingBasket_storeName = favoriteStoreNameArray
+                
+                
                 self.navigationController?.pushViewController(rvc, animated: true)
             }else{
                 /* 들어갈 기능 = message alert 혹은 팝업 cotroller를 뛰운다*/

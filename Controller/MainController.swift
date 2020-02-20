@@ -39,6 +39,7 @@ class MainController : UIViewController{
     @IBOutlet weak var progressTitle_Label: UILabel!
     @IBOutlet weak var progressComment_Label: UILabel!
     @IBOutlet weak var progressComment2_Label: UILabel!
+    @IBOutlet weak var progressComment3_Label: UILabel!
     
     @IBOutlet weak var progressImage_ImageView: UIImageView!
     
@@ -97,8 +98,13 @@ class MainController : UIViewController{
         
         let defaults = UserDefaults.standard
         let favoriteMenuArray = defaults.stringArray(forKey: "favoriteMenuArray") ?? [String]()
+        let favoriteStoreNameArray = defaults.stringArray(forKey: "favoriteStoreNameArray") ?? [String]()
+        
         if favoriteMenuArray.count != 0 {
+            
             rvc.willgetFavoriteMenuName = favoriteMenuArray
+            rvc.willgetFavoriteStoreName = favoriteStoreNameArray
+            
             self.navigationController?.pushViewController(rvc, animated: true)
             
         }else{
@@ -287,7 +293,7 @@ class MainController : UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        print("11111111111111111111111111")
         self.navigationController!.isNavigationBarHidden = true
         
 //        CustomHttpRequest().phpCommunication(url: "getUserInfo.php", postString: "id=\(self.userId!)"){
@@ -321,7 +327,25 @@ class MainController : UIViewController{
             self.progressImage_ImageView.alpha = 1.0
         }
         
-        print("MainControllerViewWillAppear??")
+        
+        if let storeName = UserDefaults.standard.string(forKey: "mainProgressStoreName"){
+            progressComment_Label.text = storeName
+        }
+        if let menuName = UserDefaults.standard.string(forKey: "mainProgressMenuName"){
+            progressComment2_Label.text = menuName
+        }
+        if let numberOfMenu = UserDefaults.standard.string(forKey: "mainProgressMenuCount") {
+             print(numberOfMenu)
+            if (Int(numberOfMenu) == 1) {
+                progressComment3_Label.text = ""
+            }else{
+                /* 이 부분이 오류가 된다.*/
+                progressComment3_Label.text = "외 \(Int(numberOfMenu)! - 1) "
+            }
+        }
+        
+        
+        
         
     }
     

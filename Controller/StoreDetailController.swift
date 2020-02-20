@@ -21,6 +21,9 @@ class StoreDetailController : UIViewController{
     var storeEnName : String?
     var storeMenuNameArray: Array<String> = [String](repeating: "0", count: 6)
     
+    /* 가게 즐겨찾기 */
+//    var willgetStoreNameArray : Array<String> = []
+    
     /* voiceover 접근성 전용 */
     @IBOutlet weak var menu_Label: UILabel!
     @IBOutlet weak var storeName_Label: UILabel!
@@ -50,6 +53,8 @@ class StoreDetailController : UIViewController{
         
         guard let rvc = self.storyboard?.instantiateViewController(withIdentifier: "DialogFlowPopUpController") as? DialogFlowPopUpController else {
             return}
+        
+            
         
         self.navigationController?.pushViewController(rvc, animated: true)
     }
@@ -142,6 +147,12 @@ class StoreDetailController : UIViewController{
             
             rvc.willgetCategoryName = willgetCategroyName
             rvc.willgetCategroyPrice = willgetCategroyPrice
+            
+            for _ in willgetCategroyName{
+                rvc.willgetStoreNameArray.append(self.storeName!)
+            }
+//            rvc.willgetStoreNameArray = willgetStoreNameArray
+            
 
             self.navigationController?.pushViewController(rvc, animated: true)
         }
@@ -162,6 +173,11 @@ class StoreDetailController : UIViewController{
             
             rvc.willgetCategoryName = willgetCategroyName
             rvc.willgetCategroyPrice = willgetCategroyPrice
+            
+            for _ in willgetCategroyName{
+                rvc.willgetStoreNameArray.append(self.storeName!)
+            }
+            
             self.navigationController?.pushViewController(rvc, animated: true)
         }
     }

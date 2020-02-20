@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var menuEachPriceArray: Array<Int> = []
     var menuSugarContent : Array<String> = []
     var menuIsWhippedCream : Array<String> = []
-    
-    
+    var menuStoreName : String = ""
+        
     var badgeCount : Int = 0
     //    var orderState : String = nil
     //    /*TEST*/

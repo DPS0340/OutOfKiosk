@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y49-lh-7VC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y49-lh-7VC">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
         <!--Login Controller-->
         <scene sceneID="qON-Qs-Zow">
             <objects>
-                <viewController storyboardIdentifier="login" modalPresentationStyle="fullScreen" id="Y49-lh-7VC" customClass="LoginController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" modalPresentationStyle="fullScreen" id="Y49-lh-7VC" customClass="LoginController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hqs-nc-sUp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +134,7 @@
         <!--주문-->
         <scene sceneID="KmV-9v-BXv">
             <objects>
-                <viewController storyboardIdentifier="MainController" modalPresentationStyle="fullScreen" id="vo8-u6-hUb" customClass="MainController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainController" modalPresentationStyle="fullScreen" id="vo8-u6-hUb" customClass="MainController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K7h-e4-ykF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,6 +237,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="갯수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-Pn-hrA">
+                                        <rect key="frame" x="169" y="108" width="130" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -292,6 +299,7 @@
                         <outlet property="profileSetting_Btn" destination="nzZ-d3-CPs" id="Npl-8N-I0F"/>
                         <outlet property="progressBar_view" destination="v4h-tH-D19" id="L2v-Jl-PI1"/>
                         <outlet property="progressComment2_Label" destination="YtW-od-ie5" id="JqV-Nk-zjV"/>
+                        <outlet property="progressComment3_Label" destination="zUh-Pn-hrA" id="hpV-V3-b3T"/>
                         <outlet property="progressComment_Label" destination="NW6-tb-6oG" id="YsO-oU-lhm"/>
                         <outlet property="progressImage_ImageView" destination="R2C-uW-TAN" id="TU3-NL-vh3"/>
                         <outlet property="progressTitle_Label" destination="hP5-gR-BdQ" id="152-mK-gBR"/>
@@ -311,7 +319,7 @@
         <!--Favorite Menu Controller-->
         <scene sceneID="sfS-9I-bhx">
             <objects>
-                <viewController storyboardIdentifier="FavoriteMenuController" id="hGt-rx-mRx" customClass="FavoriteMenuController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteMenuController" id="hGt-rx-mRx" customClass="FavoriteMenuController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Raa-Zv-Nt0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,7 +329,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteList" rowHeight="96" id="HLh-gg-hDV" customClass="FavoriteList" customModule="OutOfKiosk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteList" rowHeight="96" id="HLh-gg-hDV" customClass="FavoriteList" customModule="여기다" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HLh-gg-hDV" id="2mM-fk-ZJB">
@@ -405,7 +413,7 @@
         <!--Detail Menu Controller-->
         <scene sceneID="GHh-0B-06H">
             <objects>
-                <viewController storyboardIdentifier="DetailMenuController" id="Pwi-ve-Dd6" customClass="DetailMenuController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailMenuController" id="Pwi-ve-Dd6" customClass="DetailMenuController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Py3-Va-wsw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,10 +423,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductList" rowHeight="98" id="tbO-fJ-jEc" customClass="ProductList" customModule="OutOfKiosk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductList" rowHeight="98" id="tbO-fJ-jEc" customClass="ProductList" customModule="여기다" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tbO-fJ-jEc" id="hs1-1w-VhH" customClass="ProductList" customModule="OutOfKiosk" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tbO-fJ-jEc" id="hs1-1w-VhH" customClass="ProductList" customModule="여기다" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -484,7 +492,7 @@
         <!--Shopping Basket Controller-->
         <scene sceneID="G4U-vM-Ick">
             <objects>
-                <viewController storyboardIdentifier="ShoppingBasketController" id="B88-YK-K4O" customClass="ShoppingBasketController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShoppingBasketController" id="B88-YK-K4O" customClass="ShoppingBasketController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5YG-pU-geX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -506,10 +514,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingBasket" rowHeight="244" id="2eX-Xd-SuU" customClass="ShoppingBasket" customModule="OutOfKiosk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingBasket" rowHeight="244" id="2eX-Xd-SuU" customClass="ShoppingBasket" customModule="여기다" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="244"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2eX-Xd-SuU" id="aoe-L3-aaI" customClass="ShoppingBasket" customModule="OutOfKiosk" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2eX-Xd-SuU" id="aoe-L3-aaI" customClass="ShoppingBasket" customModule="여기다" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -578,7 +586,7 @@
         <!--Store List Controller-->
         <scene sceneID="BWA-GH-ZUb">
             <objects>
-                <viewController storyboardIdentifier="StoreListController" id="UU8-YW-JQD" customClass="StoreListController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoreListController" id="UU8-YW-JQD" customClass="StoreListController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R5J-wz-8j4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,7 +596,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreList" rowHeight="100" id="qHE-Sy-ahZ" customClass="StoreList" customModule="OutOfKiosk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreList" rowHeight="100" id="qHE-Sy-ahZ" customClass="StoreList" customModule="여기다" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qHE-Sy-ahZ" id="kYu-pL-OUp">
@@ -649,7 +657,7 @@
         <!--Store Detail Controller-->
         <scene sceneID="XPq-qL-wMZ">
             <objects>
-                <viewController storyboardIdentifier="StoreDetailController" id="6xr-Jj-VDY" customClass="StoreDetailController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoreDetailController" id="6xr-Jj-VDY" customClass="StoreDetailController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="99A-pz-754">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -784,7 +792,7 @@
         <!--Dialog Flow Pop Up Controller-->
         <scene sceneID="fQ2-0z-0om">
             <objects>
-                <viewController storyboardIdentifier="DialogFlowPopUpController" id="Yoj-n0-B9v" customClass="DialogFlowPopUpController" customModule="OutOfKiosk" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DialogFlowPopUpController" id="Yoj-n0-B9v" customClass="DialogFlowPopUpController" customModule="여기다" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rTU-o0-ReA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -852,7 +860,7 @@
         <!--Review Controller-->
         <scene sceneID="NNy-8U-QRK">
             <objects>
-                <viewController storyboardIdentifier="ReviewController" id="MTb-lx-VIw" customClass="ReviewController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewController" id="MTb-lx-VIw" customClass="ReviewController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Sh-Gj-1L5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -862,7 +870,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewList" rowHeight="127" id="998-rI-bi8" customClass="ReviewList" customModule="OutOfKiosk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewList" rowHeight="127" id="998-rI-bi8" customClass="ReviewList" customModule="여기다" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="998-rI-bi8" id="yOd-ZO-0hJ">
@@ -875,7 +883,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHj-Zt-q0m" customClass="FloatRatingView" customModule="OutOfKiosk" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHj-Zt-q0m" customClass="FloatRatingView" customModule="여기다" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="42.5" width="130" height="30.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -964,7 +972,7 @@
         <!--Review Write Controller-->
         <scene sceneID="ZQW-0K-IE6">
             <objects>
-                <viewController storyboardIdentifier="ReviewWriteController" id="Ik2-oW-G1R" customClass="ReviewWriteController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewWriteController" id="Ik2-oW-G1R" customClass="ReviewWriteController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CjS-bG-ANo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -987,7 +995,7 @@
                                     <action selector="ReviewWrite_Btn:" destination="Ik2-oW-G1R" eventType="touchUpInside" id="zaV-BJ-lFt"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0bv-LE-Htn" customClass="FloatRatingView" customModule="OutOfKiosk" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0bv-LE-Htn" customClass="FloatRatingView" customModule="여기다" customModuleProvider="target">
                                 <rect key="frame" x="67" y="79" width="240" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1026,7 +1034,7 @@
         <!--환경설정-->
         <scene sceneID="tW2-dc-rXI">
             <objects>
-                <viewController storyboardIdentifier="SettingController" id="MAl-pb-wXI" customClass="SettingController" customModule="OutOfKiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingController" id="MAl-pb-wXI" customClass="SettingController" customModule="여기다" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CGk-hC-9iQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
