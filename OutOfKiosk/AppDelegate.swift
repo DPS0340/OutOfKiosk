@@ -11,7 +11,7 @@ import UIKit
 import UserNotifications
 /*Push Notification 권환 받을 때 달라지는 토큰값을 pushNotificatio.php에 저장해야 한다.*/
 import Alamofire
-
+ 
 /*
  모든 View 컨트롤러에서 접근이 가능하며 앱이 종료되지 않는 이상 데이터가 유지가 될 수 있다.
  */
