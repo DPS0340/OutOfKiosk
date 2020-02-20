@@ -182,20 +182,31 @@ class MainController : UIViewController{
         }
     }
     
+    /*
     @objc func willEnterForeground() {
         print("will enter foreground")
-        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         print(UserDefaults.standard.string(forKey: "pushMSG"))
         
-    }
+    }*/
     
+    /*@objc func didEnterBackground() {
+        print("didEnterBackground!!!!")        
+        print(UserDefaults.standard.string(forKey: "pushMSG"))
+        
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         /*옵져버*/
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        */
         
+        /*백그라운드 옵져버?*/
+        /*NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        */
         
         
         
