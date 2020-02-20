@@ -308,11 +308,13 @@ open class FloatRatingView: UIView {
             if(self.rating == 5.0){
                 self.rating = 0
             }
-            
             self.rating += 0.5
         }
         
         print(self.rating)
+        
+        
+        
         
     }
     

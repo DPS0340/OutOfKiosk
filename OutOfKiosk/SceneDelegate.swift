@@ -38,14 +38,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
 
+    /* Background에서 Foreground로 넘어올 때, 뱃지넘버를 0으로 초기화 시키면서 받은 push Notification의 메시지를 출력한다.*/
     func sceneWillEnterForeground(_ scene: UIScene) {
+
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        print(UserDefaults.standard.string(forKey: "pushMSG"))
+
+        
+        
+        
+        
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         KOSession.handleDidEnterBackground()
-        print("background entered")
+        print("Scene background entered")
+
+        
+        
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.

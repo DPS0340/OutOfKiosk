@@ -212,9 +212,25 @@ class MainController : UIViewController{
         view.contentMode = .scaleAspectFill
     }
     
+    /*@objc func didEnterBackground() {
+        print("didEnterBackground!!!!")        
+        print(UserDefaults.standard.string(forKey: "pushMSG"))
+        
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+        /*옵져버*/
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        */
+        
+        /*백그라운드 옵져버?*/
+        /*NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        */
+        
+        
         
         /* 그림자 넣기, 둥글게 만들기 */
         self.navigationController!.navigationBar.setBackgroundImage(nil, for: .default)
@@ -311,6 +327,8 @@ class MainController : UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController!.isNavigationBarHidden = false
+        
+
     }
     
     
