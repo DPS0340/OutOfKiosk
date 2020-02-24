@@ -274,9 +274,7 @@ class StoreDetailController : UIViewController{
         
         print(self.storeMenuNameArray)
         /* 가게 상세 정보 설정 */
-        storeName_Label.text = storeName
-        firstMenu_Btn.setTitle(self.storeMenuNameArray[0], for: .normal)
-        secondMenu_Btn.setTitle(self.storeMenuNameArray[1], for: .normal)
+        
         
         
         
@@ -339,6 +337,33 @@ class StoreDetailController : UIViewController{
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         //self.navigationController!.navigationBar.isTranslucent = true
+        
+        CustomHttpRequest().phpCommunication(url: "getStoreDetailInfo.php", postString: "store_name=\(storeEnName!)"){
+            
+            responseString in
+            print(responseString)
+            
+            guard let dict = CustomConvert().convertStringToDictionary(text: responseString) else {return}
+            for i in 0..<dict.count{
+                
+                self.storeMenuNameArray[Int(Array(dict)[i].key as! String)! - 1] = Array(dict)[i].value as! String
+                
+            }
+            DispatchQueue.main.async{
+                self.storeName_Label.text = self.storeName
+                self.firstMenu_Btn.setTitle(self.storeMenuNameArray[0], for: .normal)
+                self.secondMenu_Btn.setTitle(self.storeMenuNameArray[1], for: .normal)
+            }
+            
+
+        }
+        
+                
+        
+        
+        
+        
+        
         
         let ad = UIApplication.shared.delegate as? AppDelegate
         
