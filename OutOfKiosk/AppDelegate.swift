@@ -49,6 +49,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let dictionary = [String:String]()
+        let defaults = UserDefaults.standard
+        
+        
+        var favoriteMenuInfoDict = defaults.object(forKey: "favoriteMenuInfoDict") as? [String:String]
+        print("개수:", favoriteMenuInfoDict?.count)
+        /* 비어있으면 초기화 */
+        if favoriteMenuInfoDict == nil{
+            defaults.set(dictionary, forKey: "favoriteMenuInfoDict")
+        }
+        
+        
         Thread.sleep(forTimeInterval: 2.0)
         
         /* 최초에 사용자로부터 pushNotification의 권환을 받기 위한 코드*/

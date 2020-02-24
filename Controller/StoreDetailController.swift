@@ -71,22 +71,6 @@ class StoreDetailController : UIViewController{
                    return}
         rvc.storeEnName = self.storeEnName
         
-//        phpGetReviewInfo(storeEnName!){
-//            dict in
-//
-//            for i in 1...dict.count{
-//                let dict = dict[String(i)] as! NSDictionary
-//                reviewUserId?.append(dict["userId"] as! String)
-//                reviewContents?.append(dict["contents"] as! String)
-//                reviewTime?.append(dict["time"] as! String)
-//                reviewRating?.append(dict["rating"] as! Double)
-//
-//            }
-//
-//            rvc.reviewUserId = reviewUserId!
-//            rvc.reviewContents = reviewContents!
-//            rvc.reviewTime = reviewTime!
-//            rvc.reviewRating = reviewRating!
             
             DispatchQueue.main.async {
                 self.navigationController?.pushViewController(rvc, animated: true)
@@ -116,7 +100,7 @@ class StoreDetailController : UIViewController{
             print("responseString = \(responseString!)")
             
             
-            guard let dict = self.convertStringToDictionary(text: responseString as! String) else {return}
+            guard let dict = CustomConvert().convertStringToDictionary(text: responseString as! String) else {return}
             
             handler(dict)
         }
@@ -140,22 +124,13 @@ class StoreDetailController : UIViewController{
             //아니면 종료
             return}
         
-        /* phpGetData는 Escaping closure 사용. 따라서 phpGetData 실행 후 대괄호 안의 코드 실행 */
-        phpGetData(1){ //1은 frapuccino의 대한 카테코리 넘버.
-            
-            (willgetCategroyName,willgetCategroyPrice) in
-            
-            rvc.willgetCategoryName = willgetCategroyName
-            rvc.willgetCategroyPrice = willgetCategroyPrice
-            
-            for _ in willgetCategroyName{
-                rvc.willgetStoreNameArray.append(self.storeName!)
-            }
-//            rvc.willgetStoreNameArray = willgetStoreNameArray
-            
+        rvc.storeEnName = storeEnName
+        rvc.storeKorName = storeName
+        rvc.categoryNumber = 1
 
-            self.navigationController?.pushViewController(rvc, animated: true)
-        }
+        
+        self.navigationController?.pushViewController(rvc, animated: true)
+        
         
     }
     
@@ -167,19 +142,14 @@ class StoreDetailController : UIViewController{
             //아니면 종료
             return}
         
-        phpGetData(2){ // 6은 smoothie의 대한 카테코리 넘버이다.
-            
-            (willgetCategroyName,willgetCategroyPrice) in
-            
-            rvc.willgetCategoryName = willgetCategroyName
-            rvc.willgetCategroyPrice = willgetCategroyPrice
-            
-            for _ in willgetCategroyName{
-                rvc.willgetStoreNameArray.append(self.storeName!)
-            }
-            
-            self.navigationController?.pushViewController(rvc, animated: true)
-        }
+        rvc.storeEnName = storeEnName
+        rvc.storeKorName = storeName
+        rvc.categoryNumber = 2
+
+        
+        self.navigationController?.pushViewController(rvc, animated: true)
+        
+        
     }
     
     
@@ -229,22 +199,6 @@ class StoreDetailController : UIViewController{
     }
     
     
-    
-    
-    /* Stiring -> Dictionary */
-    func convertStringToDictionary(text: String) -> NSDictionary? {//[String:AnyObject]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                /* jsonObject: String type json을 Foundation Object로 바꿔줌 */
-                /* Foundation Object: NSArray, NSDictionary, NSNumber, NSDate, NSString or NSNull 로 변환 가능 */
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary //[String:AnyObject]
-                return json
-            } catch {
-                print("Something went wrong")
-            }
-        }
-        return nil
-    }
     
     /*
      phpGetData는 Alamofire.request의 Return값을 전달해 주어야 한다. 그런데 Alamofire.request는 비동기 함수이므로

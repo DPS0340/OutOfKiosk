@@ -148,6 +148,34 @@ class StoreListController : UIViewController, UITableViewDelegate , UITableViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        storeNameArray.removeAll()
+        storeCategoryArray.removeAll()
+        storeEnNameArray.removeAll()
+        
+        CustomHttpRequest().phpCommunication(url: "getStoreInfo.php", postString: ""){
+            responseString in
+            
+            let dict = CustomConvert().convertStringToDictionary(text: responseString)!
+            
+            for i in 0..<dict.count{
+                self.storeNameArray.append(Array(dict)[i].key as! String)
+                
+                let sub_info = Array(dict)[i].value as! NSDictionary
+                self.storeCategoryArray.append(sub_info["category"] as! String)
+                self.storeEnNameArray.append(sub_info["en_name"] as! String)
+                
+            }
+            
+            DispatchQueue.main.async {
+                self.CafeTableView.reloadData()
+            }
+            
+            
+            
+        }
+        
+        
         self.navigationController?.navigationBar.topItem?.title = "가게"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "NanumSquare", size: 20)!]
         self.navigationController?.navigationBar.topItem?.accessibilityLabel = "가게 선택 메뉴입니다"
