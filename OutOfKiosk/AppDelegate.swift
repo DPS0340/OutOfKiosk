@@ -16,7 +16,7 @@ import Alamofire
  모든 View 컨트롤러에서 접근이 가능하며 앱이 종료되지 않는 이상 데이터가 유지가 될 수 있다.
  */
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenterDelegate{
     
     
     /*ORIGINAL*/
@@ -49,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        UNUserNotificationCenter.current().delegate = self
+        
         let dictionary = [String:String]()
         let defaults = UserDefaults.standard
         
@@ -58,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* 비어있으면 초기화 */
         if favoriteMenuInfoDict == nil{
             defaults.set(dictionary, forKey: "favoriteMenuInfoDict")
+        }
+        
         }
         
         
@@ -93,8 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         
         print("등록된 토큰은 \(deviceTokenString) 입니다.")
-        
-        
+                
         UserDefaults.standard.set(deviceTokenString , forKey: "token")
     }
     
@@ -103,15 +106,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("에러 발생 : \(error)")
     }
     
-    
+//    @objc func changeTitleView(){
+//
+//    }
     
     /* 이 프로토콜은 push notification을 알람으로 받는다.*/
     func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         
         
+        
         if (application.applicationState == .active){ //포그라운드에서 pushNotification 받음.
             print("포그라운드!")
+            
+            /*MainController 옵져버*/
+            //NotificationCenter.default.addObserver(self, selector: #selector(changeTitleView), name: UIApplication., object: nil)
+            
+            
+//            test.progressTitle_Label.text = "TEST"
+            //print(test.progressTitle_Label.text!)
             
         }else if (application.applicationState == .background){
             print("백그라운드!")
@@ -122,18 +135,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        UIApplication.shared.applicationIconBadgeNumber += 1
+        UIApplication.shared.applicationIconBadgeNumber += 1 /* 아이콘에 뱃지 넘버수를 증가시킨다.*/
+        
         print(UIApplication.shared.applicationIconBadgeNumber)
         
         let aps = data[AnyHashable("aps")] as? NSDictionary
         let alert = aps!["alert"] as! NSMutableString
         print("메시지 내용 찾기 : ", alert)        
         
-        UserDefaults.standard.set(alert, forKey: "pushMSG")
+        //UserDefaults.standard.set(alert, forKey: "pushMSG")
+        
+        /*AppDelegate에서 MainView로 Notification 보내기(alert MSG)*/
+        let userInfo: [AnyHashable: Any] = ["alert": alert]
+        NotificationCenter.default.post(name: NSNotification.Name("TestNotification"), object: nil, userInfo: userInfo)
+
+        
+        
+//        let test = MainController()
+//        test.viewDidAppear(true)
+                
+//        print("세팅할 내용 " , UserDefaults.standard.string(forKey: "pushMSG")!)
+                
         /* 후에 특정 메시지가 오게 되면 여기서 pushMSG의 값을 nil로 초기화 하는 작업을 할 듯.*/
                 
     }
     
+    /* ForeGround에서 알람이 오면 출력해주는 메소드*/
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        completionHandler([.alert, .badge, .sound])
+    }
+
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         if KOSession.handleOpen(url) {
             return true
@@ -166,8 +198,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    
-    
     func applicationDidEnterBackground(_ application: UIApplication) {
         KOSession.handleDidEnterBackground()
         print("background entered")
@@ -186,75 +216,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     
     
-    //    func applicationWillEnterForeground(_ application: UIApplication) {
-    //
-    //        print("foreground will enter")
-    //        /* 앱이 실행되면 뱃지에 있는 숫자를 0으로 바꾼다.*/
-    //
-    ////        UIApplication.shared.applicationIconBadgeNumber = 0
-    ////        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-    ////
-    //    }
-    //    @objc func willEnterForeground() {
-    //        print("will enter foreground")
-    //        UIApplication.shared.applicationIconBadgeNumber = 0
-    //        print(UserDefaults.standard.string(forKey: "pushMSG"))
-    //
-    //    }
-    
-    
-    //
-    //    func applicationDidBecomeActive(_ application: UIApplication) {
-    //        KOSession.handleDidBecomeActive()
-    //        print("I'm foreground")
-    //    }
-    //
-    
-    
 }
 
-/*
- extension AppDelegate : UNUserNotificationCenterDelegate {
- @available(iOS 10.0, *)
- func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
- // 앱이 구동되어 있으면 호출됨
- //        processPayload(notification.request.content.userInfo, background: false)
- 
- completionHandler(.alert) // 푸시가 오면 어떻게 표현이 되는지에 대해서 정의
- }
- 
- @available(iOS 10.0, *)
- func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
- // 앱이 백그라운드 상태면 호출됨
- //        processPayload(response.notification.request.content.userInfo, background: true)
- completionHandler()
- }
- 
- func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
- let state = application.applicationState
- switch state {
- case .background, .inactive:
- print("백그라운드 모드")
- break
- //            processPayload(userInfo, background: true)
- case .active:
- print("포그라운드 모드")
- print("메시지 수신 : \(data)")
- print(type(of: data))
- //        let dict = data.values
- let aps = data[AnyHashable("aps")] as? NSDictionary
- let alert = aps!["alert"] as! NSMutableString
- print("메시지 내용 찾기 : ", alert)
- UIApplication.shared.applicationIconBadgeNumber += 0
- 
- UserDefaults.standard.set(alert, forKey: "pushMSG")
- break
- //            processPayload(userInfo, background: false)
- @unknown default:
- break
- // 상태가 존재하지는 않음
- //            processPayload(userInfo, background: true)
- }
- }
- }
- */

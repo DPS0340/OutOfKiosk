@@ -280,6 +280,7 @@ class ShoppingBasketController : UIViewController, UITableViewDelegate, UITableV
                     UserDefaults.standard.set(ad?.numOfProducts, forKey: "mainProgressMenuCount")
                     UserDefaults.standard.set(ad?.menuStoreName, forKey: "mainProgressStoreName")
                     
+                    UserDefaults.standard.set("주문 접수 중", forKey: "pushMSG")
                     
                     self.navigationController?.popViewController(animated: true)
                     //        let ad = UIApplication.shared.delegate as? AppDelegate

@@ -72,10 +72,7 @@ class StoreListController : UIViewController, UITableViewDelegate , UITableViewD
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        /*Test용도 후에 삭제*/
-        UserDefaults.standard.set(nil, forKey: "pushMSG")
+        super.viewDidLoad()                
         
         /* backButton 커스터마이징 */
         let backBtn = UIButton(type: .custom)
