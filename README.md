@@ -24,14 +24,6 @@ These instructions will get you a copy of the project up and running on your loc
   Mysql - Database  
   ```
 
-### POS
-
-  ```
-  C#
-  AWS - Server
-  Mysql - Database  
-  ```
- 
 
 ## Versioning
 
@@ -46,20 +38,12 @@ These instructions will get you a copy of the project up and running on your loc
    - AWS Server와 PHP연동을 통해 주문한 정보를 MySql DB에 전송시키는 것이 가능하다.
    
 
-##### POS
-
-  POS(1.1)
-   - POS기의 UI모델을 재현했으며 메뉴정보 담기 및 계산이 가능하다.
-   - DB를 연동하여 선택된 메뉴 아이템을 DB로 보낼 수 있다.
-
 
 ## License
 
 This project is licensed under the KPU_Studnets
 
 #### IOS App제작 = 심영민, 박진서
-
-#### POS, DB관리 = 임의주, 신영명
 
 License - see the [LICENSE.md](LICENSE.md) file for details
 
