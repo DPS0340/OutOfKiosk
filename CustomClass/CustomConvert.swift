@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class CustomConvert{
     
     /* Stiring -> Dictionary */
