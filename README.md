@@ -1,7 +1,9 @@
 # :heart:  Project
 ## 여기다
 
-시각 장애인을 위한 음성주문 기반 키오스크 어플리케이션    
+#### 시각 장애인을 위한 음성주문 기반 키오스크 어플리케이션    
+챗봇, TTS, STT를 결합하여 시각 장애인이 음성으로 주문을 할 수 있도록 함.
+APP 전반에 시각 장애인을 위한 장애인 접근성 지침을 준수하여 VoiceOver를 이용해 모든 기능을 사용할 수 있음.
 
 
 
@@ -13,7 +15,7 @@
 
 ### :iphone:APP 개발
 
-iOS, Google Dialogflow V2, AWS EC2(PHP, DB Server)
+iOS, VoiceOver, Google Dialogflow V2, AWS EC2(PHP, DB Server)
 
 심영민, 박진서
 
@@ -54,9 +56,9 @@ https://www.youtube.com/watch?v=eqi8PUJboFY
 ### 4. 전체 시연 영상
 https://www.youtube.com/watch?v=QPmVavaMwBk
 
+
 ### 기타: 비콘 주문 기능 (추후 영상 추가 예정)
 
-# 
 
 
 
