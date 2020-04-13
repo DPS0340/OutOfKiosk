@@ -11,6 +11,24 @@
 ## Team OOK(Out Of Kiosk)
 ![image](https://user-images.githubusercontent.com/20080283/79094920-f4444200-7d93-11ea-97ea-049f433675c8.png)
 
+# 기능
+
+### 카카오 간편 로그인
+<img src="https://user-images.githubusercontent.com/20080283/79095575-b1836980-7d95-11ea-941d-5179b3c374e2.gif" width="40%">
+
+### 음성주문
+<img src="https://user-images.githubusercontent.com/20080283/79096612-9fef9100-7d98-11ea-8eb6-fb7c77262f28.gif" width="40%">
+
+Google Dialogflow, AWS EC2 Server(PHP), RDS Server(DB)  
+음성주문, 유사도 추천 기능 제공
+
+### 알림기능
+https://www.youtube.com/watch?v=eqi8PUJboFY
+
+### 전체 시연 영상
+https://www.youtube.com/watch?v=QPmVavaMwBk
+
+# Contributor
 
 ### :iphone:APP 개발
 
