@@ -5,7 +5,8 @@
 
 
 
-![image](https://user-images.githubusercontent.com/20080283/79094836-bb0bd200-7d93-11ea-8e54-94b62fcd8022.png)   
+<img width="1845" alt="스크린샷 2020-04-13 오후 3 23 00" src="https://user-images.githubusercontent.com/20080283/79097410-b39bf700-7d9a-11ea-96cf-63320a08d3e8.png">
+)
 
 # :family: Contribution      
 ## Team OOK(Out Of Kiosk)
