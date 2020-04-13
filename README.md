@@ -41,11 +41,14 @@ https://github.com/skadkwld/pos_program
 ### 2. 음성주문
 <img src="https://user-images.githubusercontent.com/20080283/79096612-9fef9100-7d98-11ea-8eb6-fb7c77262f28.gif" width="40%">
 
-Google Dialogflow, AWS EC2 Server(PHP), RDS Server(DB), Lottie
+#### Google Dialogflow, AWS EC2 Server(PHP), RDS Server(DB), Lottie
+
 음성주문, 유사도 추천 기능 제공
 
 ### 3. 알림기능
 https://www.youtube.com/watch?v=eqi8PUJboFY
+
+#### APNS, AWS EC2(PHP)
 
 ### 4. 전체 시연 영상
 https://www.youtube.com/watch?v=QPmVavaMwBk
