@@ -9,10 +9,12 @@
 
 # :family: Contribution      
 ## Team OOK(Out Of Kiosk)
+![image](https://user-images.githubusercontent.com/20080283/79094920-f4444200-7d93-11ea-97ea-049f433675c8.png)
+
 
 ### :iphone:APP 개발
 
-iOS, Dialogflow V2, AWS EC2(PHP, DB Server)
+iOS, Google Dialogflow V2, AWS EC2(PHP, DB Server)
 
 심영민, 박진서
 
