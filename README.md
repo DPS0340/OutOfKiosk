@@ -1,5 +1,5 @@
-# :heart:  Project
-## 여기다
+
+# 여기다
 
 #### 시각 장애인을 위한 음성주문 기반 키오스크 어플리케이션    
 챗봇, TTS, STT를 결합하여 시각 장애인이 음성으로 주문을 할 수 있도록 함.
@@ -13,6 +13,12 @@ APP 전반에 시각 장애인을 위한 장애인 접근성 지침을 준수하
 
 # :family: Contribution      
 ## Team OOK(Out Of Kiosk)
+
+### :walking: 협업도구
+
+Git & Agile(Scrum) - 방학 중 2주 간격 스프린트. 개강 후엔 자유롭게 issue 발행 및 해결
+
+<hr/>
 
 ### :iphone:APP 개발
 
