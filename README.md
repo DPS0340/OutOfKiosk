@@ -8,40 +8,30 @@
 </br>
 
 * #### :family: 개발자
-> 심영민, 박진서, 임의주, 신영명
-
-
+심영민, 박진서, 임의주, 신영명
 
 * #### :pushpin: 협업도구
-
-> #### Git & Agile(Scrum)
-> 방학 중 2주 간격 스프린트. 개강 후엔 자유롭게 issue 발행 및 해결
+#### Git & Agile(Scrum)
+방학 중 2주 간격 스프린트. 개강 후엔 자유롭게 issue 발행 및 해결
 
 
 
 * #### :iphone: APP 개발
 
-> iOS, VoiceOver, Google Dialogflow V2, 
+Language & Environment: Swift, Xcode, iOS 13
 
-> 심영민, 박진서
+프레임워크: Lottie, KaKaoLoginSDK, AVFoundation, Lottie, VoiceOver
+
+개발 담당: 심영민, 박진서
 
 
 
 * #### :computer: POS 개발
-
-> C#
-
-> https://github.com/skadkwld/pos_program
-
-> 임의주, 신영명
-
-
+C# </br> https://github.com/skadkwld/pos_program </br> 임의주, 신영명
 
 
 * #### :file_folder: Server 개발
-> AWS EC2: PHP 서버. 심영민, 박진서
-
-> AWS RDS: DB 서버. 임의주, 신영명
+AWS EC2: PHP 서버. 심영민, 박진서 </br> AWS RDS: DB 서버. 임의주, 신영명
 
 <hr/>
 
