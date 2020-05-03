@@ -5,42 +5,47 @@
 
 한국산업기술대학교 컴퓨터 공학과 졸업작품
 
-#### :family: 개발자
-심영민, 박진서, 임의주, 신영명
-
 </br>
 
-#### :pushpin: 협업도구
+* #### :family: 개발자
+> 심영민, 박진서, 임의주, 신영명
 
-Git & Agile(Scrum) - 방학 중 2주 간격 스프린트. 개강 후엔 자유롭게 issue 발행 및 해결
+
+
+* #### :pushpin: 협업도구
+
+> #### Git & Agile(Scrum)
+> 방학 중 2주 간격 스프린트. 개강 후엔 자유롭게 issue 발행 및 해결
+
+
+
+* #### :iphone: APP 개발
+
+> iOS, VoiceOver, Google Dialogflow V2, 
+
+> 심영민, 박진서
+
+
+
+* #### :computer: POS 개발
+
+> C#
+
+> https://github.com/skadkwld/pos_program
+
+> 임의주, 신영명
+
+
+
+
+* #### :file_folder: Server 개발
+> AWS EC2: PHP 서버. 심영민, 박진서
+
+> AWS RDS: DB 서버. 임의주, 신영명
 
 <hr/>
 
-### :iphone: APP 개발
-
-iOS, VoiceOver, Google Dialogflow V2, 
-
-심영민, 박진서
-
-<hr/>
-
-### :computer: POS 개발
-
-C#, AWS EC2(DB Server)
-
-https://github.com/skadkwld/pos_program
-
-임의주, 신영명
-
-
-<hr/>
-
-### Server 개발
-AWS EC2: PHP 서버. 심영민, 박진서
-
-AWS RDS: DB 서버. 임의주, 신영명
-
-<hr/>
+</br>
 
 ## 1. 개요
 챗봇, TTS, STT를 결합하여 시각 장애인이 음성으로 주문을 할 수 있도록 함.
