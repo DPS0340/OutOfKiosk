@@ -16,7 +16,7 @@
 
 * #### :iphone: APP
   * Language & Environment: Swift, Xcode, iOS 13
-  * Frameworks: Lottie, KaKaoLoginSDK, AVFoundation, Lottie, VoiceOver
+  * Frameworks: KaKaoLoginSDK, AVFoundation, Speech, CoreLocation,  Lottie, VoiceOver
   * Developers: 심영민, 박진서
 
 * #### :computer: POS
