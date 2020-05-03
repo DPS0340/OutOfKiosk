@@ -1,10 +1,16 @@
 
-# 여기다
+# 여기다(Yeogida)
 ### 시각 장애인을 위한 음성주문 기반 키오스크 어플리케이션
-한국산업기술대학교 컴퓨터 공학과 졸업작품
-  
+### Kiosk Application for visually impaired people using voice order
 
-### :walking: 협업도구
+한국산업기술대학교 컴퓨터 공학과 졸업작품
+
+#### :family: 개발자
+심영민, 박진서, 임의주, 신영명
+
+</br>
+
+#### :pushpin: 협업도구
 
 Git & Agile(Scrum) - 방학 중 2주 간격 스프린트. 개강 후엔 자유롭게 issue 발행 및 해결
 
@@ -12,7 +18,7 @@ Git & Agile(Scrum) - 방학 중 2주 간격 스프린트. 개강 후엔 자유�
 
 ### :iphone: APP 개발
 
-iOS, VoiceOver, Google Dialogflow V2, AWS EC2(PHP, DB Server)
+iOS, VoiceOver, Google Dialogflow V2, 
 
 심영민, 박진서
 
@@ -28,6 +34,11 @@ https://github.com/skadkwld/pos_program
 
 
 <hr/>
+
+### Server 개발
+AWS EC2: PHP 서버. 심영민, 박진서
+
+AWS RDS: DB 서버. 임의주, 신영명
 
 <hr/>
 
